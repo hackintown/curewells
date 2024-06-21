@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import config from "../../config";
+import axios from "axios";
 
 const EnquiryForm = ({ isModalOpen, toggleModal }) => {
   const [fname, setFname] = useState("");
