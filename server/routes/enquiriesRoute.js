@@ -15,14 +15,15 @@ const transporter = nodemailer.createTransport({
 // @route   POST /api/enquiries
 // @desc    Create an enquiry
 router.post("/", async (req, res) => {
-  const { name, email, phone } = req.body;
+  const { fname, email, phone, services } = req.body;
 
   try {
     // Create a new enquiry instance
     const newEnquiry = new Enquiry({
-      name,
+      fname,
       email,
       phone,
+      services,
     });
 
     // Save the enquiry to the database

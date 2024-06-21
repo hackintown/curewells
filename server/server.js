@@ -1,10 +1,7 @@
 const express = require("express");
-const mongoose = require("mongoose");
 const cors = require("cors");
-const bcrypt = require('bcryptjs');
 const bodyParser = require("body-parser");
-const nodemailer = require("nodemailer");
-const {PORT, MONGODB_URI} = require('./config/config')
+const { PORT, MONGODB_URI } = require("./config/config");
 require("dotenv").config();
 
 const app = express();
