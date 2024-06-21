@@ -15,7 +15,7 @@ const EnquiryForm = ({ isModalOpen, toggleModal }) => {
     e.preventDefault();
     setLoading(true);
     try {
-      const response = await axios.post(`${config.apiBaseUrl}/auth/register`, {
+      const response = await axios.post(`${config.apiBaseUrl}/api/enquiries`, {
         fname,
         email,
         phone,
