@@ -1,5 +1,5 @@
 const config = {
-  apiBaseUrl: "https://curewells-server.onrender.com",
+  apiBaseUrl: "https://curewells.onrender.com/",
 };
 
 export default config;
