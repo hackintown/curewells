@@ -4,19 +4,18 @@ import Services from "../components/Services";
 import BookAppointment from "../components/BookAppointment";
 import EnquiryForm from "../components/EnquiryForm";
 
-const Home = () => {
+const Home = ({ toggleModal }) => {
   return (
     <div>
       <div className="bg-[#F2F7FF]">
-        <Hero />
+        <Hero toggleModal={toggleModal} />
       </div>
 
       <div className="bg-[#F2F7FF]">
-        <Services />
+        <Services toggleModal={toggleModal} />
       </div>
 
-      <BookAppointment />
-      <EnquiryForm />
+      <BookAppointment toggleModal={toggleModal} />
     </div>
   );
 };
