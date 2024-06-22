@@ -1,27 +1,18 @@
 const express = require("express");
 const cors = require("cors");
+const bodyParser = require("body-parser");
 const { PORT } = require("./config/config");
 const enquiryRoutes = require("./routes/enquiriesRoute");
 const connectDB = require("./config/db");
 require("dotenv").config();
-const mongoose = require("mongoose");
 
 const app = express();
 
-//Middleware
+// Middleware
 app.use(cors());
-app.use(express.json()); // Parses JSON bodies
-app.use(express.urlencoded({ extended: true })); // Parses URL-encoded bodies
+app.use(bodyParser.json());
 
-// Test server running
-app.use("/", (req, res) => {
-  return res.json({
-    success: true,
-    message: "Your server is up and running...",
-  });
-});
-
-//Routes
+// Routes
 app.use("/api/enquiries", enquiryRoutes);
 
 // MongoDB Connection
@@ -33,6 +24,13 @@ app.use((err, req, res, next) => {
   res.status(500).json({ error: "A server error occurred!" });
 });
 
-// Start the server
+// Test server running
+app.use("/", (req, res) => {
+  return res.json({
+    success: true,
+    message: "Your server is up and running...",
+  });
+});
 
+// Start the server
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
