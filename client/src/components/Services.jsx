@@ -15,7 +15,7 @@ const servicesInfo = [
 
 const Services = () => {
   return (
-    <div className="py-16 bg-gray-50">
+    <div className="py-16 bg-gray-50" id='services'>
       <div className="container mx-auto px-6">
         <h2 className="text-4xl font-bold text-center mb-2 text-gray-800">Our Services</h2>
         <p className="text-lg font-medium text-center mb-12 text-gray-600">Providing 24/7 Home Services</p>

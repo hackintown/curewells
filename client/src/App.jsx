@@ -1,9 +1,9 @@
 import React, { useState } from "react";
+import { Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
-import Hero from "./components/Hero";
-import Services from "./components/Services";
-import BookAppointment from "./components/BookAppointment";
-import EnquiryForm from "./components/ui/EnquiryForm";
+import Home from "./pages/Home";
+import NotFound from "./components/NotFound";
+import ContactPage from "./components/ContactPage";
 
 function App() {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -12,19 +12,13 @@ function App() {
   };
 
   return (
-    <>
-      <Navbar toggleModal={toggleModal} />
-      <div className="bg-[#F2F7FF]">
-        <Hero toggleModal={toggleModal} />
-      </div>
-
-      <div className="bg-[#F2F7FF]">
-        <Services />
-      </div>
-
-      <BookAppointment toggleModal={toggleModal} />
-      <EnquiryForm isModalOpen={isModalOpen} toggleModal={toggleModal} />
-    </>
+    <Routes>
+      <Route path="/" element={<Navbar toggleModal={toggleModal} />}>
+        <Route exact path="/" element={<Home toggleModal={toggleModal} />} />
+        <Route path="/contact" element={<ContactPage />}/>
+      </Route>
+      <Route path="*" element={<NotFound />} />
+    </Routes>
   );
 }
 

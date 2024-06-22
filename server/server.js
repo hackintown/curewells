@@ -3,6 +3,7 @@ const cors = require("cors");
 const bodyParser = require("body-parser");
 const { PORT, MONGODB_URI } = require("./config/config");
 require("dotenv").config();
+const mongoose = require("mongoose");
 
 const app = express();
 
@@ -20,13 +21,13 @@ app.use("/", (req, res) => {
 // Other middleware and route configurations
 app.use(express.json());
 
-// Import Routes
+//Routes
 const enquiryRoutes = require("./routes/enquiriesRoute");
 const connectDB = require("./config/db");
 app.use("/api/enquiries", enquiryRoutes);
 
 // MongoDB Connection
-connectDB(MONGODB_URI);
+connectDB();
 
 // Error handling middleware
 app.use((err, req, res, next) => {

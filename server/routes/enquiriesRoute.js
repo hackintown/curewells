@@ -69,7 +69,7 @@ router.post("/", async (req, res) => {
         <body>
             <div class="container">
                 <h2>New Enquiry Details</h2>
-                <p><strong>Name:</strong> ${name}</p>
+                <p><strong>Name:</strong> ${fname}</p>
                 <p><strong>Email:</strong> ${email}</p>
                 <p><strong>Phone:</strong> ${phone}</p>
             </div>
@@ -82,13 +82,12 @@ router.post("/", async (req, res) => {
     transporter.sendMail(mailOptions, (error, info) => {
       if (error) {
         console.error("Error sending email:", error);
+        res.status(500).json({ error: "Failed to send email" });
       } else {
         console.log("Email sent:", info.response);
+        res.status(201).json(newEnquiry); // Respond with the saved enquiry object
       }
     });
-
-    // Respond with the saved enquiry object
-    res.status(201).json(newEnquiry);
   } catch (err) {
     console.error("Error saving enquiry:", err);
     res.status(500).json({ error: "Failed to save enquiry" });

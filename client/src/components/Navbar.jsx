@@ -2,44 +2,54 @@ import { HiMiniBars3BottomRight } from "react-icons/hi2";
 import Button from "./ui/Button";
 import { useState } from "react";
 import { IoMdClose } from "react-icons/io";
+import { Link } from "react-router-dom";
+import { Outlet } from "react-router-dom";
 
 export default function Navbar({ toggleModal }) {
   const [isOpen, setIsOpen] = useState(false);
+  // Scroll to Services section function
+  const scrollToServices = () => {
+    const servicesSection = document.getElementById("services");
+    if (servicesSection) {
+      servicesSection.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   return (
-    <div className="sticky top-0 z-50 bg-[#F2F7FF] bg-opacity-80 p-3 backdrop-blur-md">
-      <div className="mx-auto flex max-w-screen-xl items-center justify-between">
-        <a href="/">
+    <div className="sticky top-0 z-50 bg-[#F2F7FF] bg-opacity-80 backdrop-blur-md">
+      <nav className="mx-auto flex max-w-screen-xl items-center justify-between">
+        <Link to="/">
           <img
             className="h-[50px] w-[146px] object-contain lg:h-[80px]"
             src="/logo.png"
             alt="Logo"
           />
-        </a>
+        </Link>
 
         <ul className="hidden items-center gap-10 md:flex">
           <li>
-            <a
+            <Link
+              to="/"
               className="text-primary-start hover:text-primary-start hover:opacity-100"
-              href="#"
             >
               Home
-            </a>
+            </Link>
           </li>
           <li>
-            <a
+            <button
+              onClick={scrollToServices}
               className="text-para opacity-80 hover:text-primary-start hover:opacity-100"
-              href="#"
             >
-              Service
-            </a>
+              Services
+            </button>
           </li>
           <li>
-            <a
+            <Link
+              to="/contact"
               className="text-para opacity-80 hover:text-primary-start hover:opacity-100"
-              href="#"
             >
               Contact
-            </a>
+            </Link>
           </li>
         </ul>
 
@@ -63,28 +73,28 @@ export default function Navbar({ toggleModal }) {
             <div className="absolute right-2 top-8 min-w-[220px] rounded-2xl border bg-white p-4 shadow-lg">
               <ul className="mb-8 flex flex-col items-center gap-6">
                 <li>
-                  <a
+                  <Link
+                    to="/"
                     className="text-primary-start hover:text-primary-start hover:opacity-100"
-                    href="#"
                   >
                     Home
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a
+                  <Link
+                    to="/services"
                     className="text-para opacity-80 hover:text-primary-start hover:opacity-100"
-                    href="#"
                   >
-                    Service
-                  </a>
+                    Services
+                  </Link>
                 </li>
                 <li>
-                  <a
+                  <Link
+                    to="/contact"
                     className="text-para opacity-80 hover:text-primary-start hover:opacity-100"
-                    href="#"
                   >
                     Contact
-                  </a>
+                  </Link>
                 </li>
               </ul>
 
@@ -92,7 +102,8 @@ export default function Navbar({ toggleModal }) {
             </div>
           )}
         </div>
-      </div>
+      </nav>
+      <Outlet />
     </div>
   );
 }
