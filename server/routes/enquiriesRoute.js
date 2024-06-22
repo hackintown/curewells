@@ -2,13 +2,14 @@ const express = require("express");
 const router = express.Router();
 const nodemailer = require("nodemailer");
 const Enquiry = require("../models/enquirySchema");
+const { EMAIL_USER, EMAIL_PASS } = require("../config/config");
 
 // Nodemailer transporter setup
 const transporter = nodemailer.createTransport({
   service: "gmail",
   auth: {
-    user: process.env.EMAIL_USER,
-    pass: process.env.EMAIL_PASS,
+    user: EMAIL_USER,
+    pass: EMAIL_PASS,
   },
 });
 
@@ -31,8 +32,8 @@ router.post("/", async (req, res) => {
 
     // Send email notification
     const mailOptions = {
-      from: process.env.EMAIL_USER,
-      to: process.env.EMAIL_USER, // Change this to your email for testing
+      from: EMAIL_USER,
+      to: EMAIL_USER, // Change this to your email for testing
       subject: "New Enquiry Submitted",
       html: `
         <!DOCTYPE html>
@@ -72,6 +73,7 @@ router.post("/", async (req, res) => {
                 <p><strong>Name:</strong> ${fname}</p>
                 <p><strong>Email:</strong> ${email}</p>
                 <p><strong>Phone:</strong> ${phone}</p>
+                 <p><strong>Phone:</strong> ${services}</p>
             </div>
         </body>
         </html>

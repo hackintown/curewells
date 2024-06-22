@@ -1,7 +1,8 @@
 const express = require("express");
 const cors = require("cors");
-const bodyParser = require("body-parser");
-const { PORT, MONGODB_URI } = require("./config/config");
+const { PORT } = require("./config/config");
+const enquiryRoutes = require("./routes/enquiriesRoute");
+const connectDB = require("./config/db");
 require("dotenv").config();
 const mongoose = require("mongoose");
 
@@ -9,7 +10,8 @@ const app = express();
 
 //Middleware
 app.use(cors());
-app.use(bodyParser.json()); // This parses JSON bodies
+app.use(express.json()); // Parses JSON bodies
+app.use(express.urlencoded({ extended: true })); // Parses URL-encoded bodies
 
 // Test server running
 app.use("/", (req, res) => {
@@ -18,12 +20,8 @@ app.use("/", (req, res) => {
     message: "Your server is up and running...",
   });
 });
-// Other middleware and route configurations
-app.use(express.json());
 
 //Routes
-const enquiryRoutes = require("./routes/enquiriesRoute");
-const connectDB = require("./config/db");
 app.use("/api/enquiries", enquiryRoutes);
 
 // MongoDB Connection
