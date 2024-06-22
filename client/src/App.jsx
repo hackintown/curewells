@@ -1,12 +1,8 @@
 import React, { useState } from "react";
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
-import ListItems from "./components/ListItems";
-import About from "./components/About";
 import Services from "./components/Services";
-import ServiceCards from "./components/ServiceCards";
-import BookAnAppointment from "./components/BookAnAppointment";
-import VideoSection from "./components/VideoSection";
+import BookAppointment from "./components/BookAppointment";
 import EnquiryForm from "./components/ui/EnquiryForm";
 
 function App() {
@@ -20,18 +16,13 @@ function App() {
       <Navbar toggleModal={toggleModal} />
       <div className="bg-[#F2F7FF]">
         <Hero toggleModal={toggleModal} />
-        <ListItems />
       </div>
-
-      <About />
 
       <div className="bg-[#F2F7FF]">
         <Services />
-        <ServiceCards />
       </div>
 
-      <BookAnAppointment />
-      <VideoSection />
+      <BookAppointment toggleModal={toggleModal} />
       <EnquiryForm isModalOpen={isModalOpen} toggleModal={toggleModal} />
     </>
   );

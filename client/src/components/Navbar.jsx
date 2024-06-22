@@ -30,14 +30,6 @@ export default function Navbar({ toggleModal }) {
               className="text-para opacity-80 hover:text-primary-start hover:opacity-100"
               href="#"
             >
-              About
-            </a>
-          </li>
-          <li>
-            <a
-              className="text-para opacity-80 hover:text-primary-start hover:opacity-100"
-              href="#"
-            >
               Service
             </a>
           </li>
@@ -76,14 +68,6 @@ export default function Navbar({ toggleModal }) {
                     href="#"
                   >
                     Home
-                  </a>
-                </li>
-                <li>
-                  <a
-                    className="text-para opacity-80 hover:text-primary-start hover:opacity-100"
-                    href="#"
-                  >
-                    About
                   </a>
                 </li>
                 <li>

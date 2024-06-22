@@ -1,6 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 export default {
-  content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
+  content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"], // Add this line
   theme: {
     extend: {
       colors: {
@@ -9,7 +9,7 @@ export default {
           end: "#6F3AFA ",
         },
         secondary: "#00BFA5",
-        para: "#6c87a3",
+        para: "#000",
       },
       fontFamily: {
         poppins: ["Poppins", "sans-serif"],
