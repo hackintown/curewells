@@ -1,6 +1,6 @@
 // server/controllers/enquiryController.js
 
-const Enquiry = require('../models/enquiryModel');
+const Enquiry = require('../models/enquirySchema');
 const nodemailer = require('nodemailer');
 const { EMAIL_USER, EMAIL_PASS } = require('../config/config');
 
