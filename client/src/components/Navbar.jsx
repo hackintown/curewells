@@ -20,7 +20,7 @@ export default function Navbar({ toggleModal }) {
     <div className="sticky top-0 z-50 bg-[#F2F7FF] bg-opacity-80 backdrop-blur-md">
       {/* Upper Header */}
       <div className="flex justify-between bg-blue-500 px-4 py-2 text-sm text-white md:px-6">
-        <div className="container mx-auto flex items-center justify-end gap-4 md:gap-6">
+        <div className="container mx-auto flex items-center justify-center md:justify-end gap-4 md:gap-6">
           <div className="flex items-center">
             <FaPhoneAlt className="text-sm md:text-xl" />
             <span className="ml-2 text-xs md:text-sm">+916284116914</span>
