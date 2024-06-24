@@ -4,6 +4,7 @@ import { useState } from "react";
 import { IoMdClose } from "react-icons/io";
 import { Link } from "react-router-dom";
 import { Outlet } from "react-router-dom";
+import { FaPhoneAlt, FaEnvelope } from "react-icons/fa";
 
 export default function Navbar({ toggleModal }) {
   const [isOpen, setIsOpen] = useState(false);
@@ -17,10 +18,25 @@ export default function Navbar({ toggleModal }) {
 
   return (
     <div className="sticky top-0 z-50 bg-[#F2F7FF] bg-opacity-80 backdrop-blur-md">
+      {/* Upper Header */}
+      <div className="flex justify-between bg-blue-500 px-4 py-2 text-sm text-white md:px-6">
+        <div className="container mx-auto flex items-center justify-end gap-4 md:gap-6">
+          <div className="flex items-center">
+            <FaPhoneAlt className="text-sm md:text-xl" />
+            <span className="ml-2 text-xs md:text-sm">+916284116914</span>
+          </div>
+          <div className="flex items-center">
+            <FaEnvelope className="text-xs md:text-xl" />
+            <span className="ml-2 text-xs md:text-sm">
+              curewell.homecare@gmail.com
+            </span>
+          </div>
+        </div>
+      </div>
       <nav className="mx-auto flex max-w-screen-xl items-center justify-between">
         <Link to="/">
           <img
-            className="h-[50px] w-[146px] object-contain lg:h-[80px]"
+            className="h-[60px] w-[60px] object-contain lg:h-[80px] lg:w-[145px]"
             src="/logo.png"
             alt="Logo"
           />
@@ -65,7 +81,7 @@ export default function Navbar({ toggleModal }) {
           ) : (
             <HiMiniBars3BottomRight
               onClick={() => setIsOpen(true)}
-              className="size-7 cursor-pointer text-primary-end"
+              className="size-8 cursor-pointer text-primary-end"
             />
           )}
 
